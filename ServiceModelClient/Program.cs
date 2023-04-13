@@ -34,14 +34,12 @@ namespace ServiceModelClient
         {
             var cwnetService = DefaultClientFactory.CreateClient<ICwnetService>(channel);
 
-            var res =  cwnetService.Add(3, 2);
-            await Console.Out.WriteLineAsync(res.ToString());
+            //var res =  cwnetService.Add(3, 2);
+            //await Console.Out.WriteLineAsync(res.ToString());
 
-            //var person = await personService.CreatePerson("John X", DateTime.Today.AddYears(-20));
+            var amount = cwnetService.GetNextPaymentAmount("1.23", new DateTime(2023, 3, 1));
 
-            //Console.WriteLine("  Name: {0}", person.Name);
-            //Console.WriteLine("  BirthDay: {0}", person.BirthDay);
-            //Console.WriteLine("  CreatedBy: {0}", person.CreatedBy);
+            await Console.Out.WriteLineAsync(amount.ToString());
         }
     }
 }

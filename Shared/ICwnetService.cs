@@ -8,5 +8,7 @@ namespace Shared
 
         [OperationContract]
         int Add(int x, int y);
+        [OperationContract]
+        decimal GetNextPaymentAmount(string loanApplicationId, DateTime date);
     }
 }
